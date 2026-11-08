@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: absensi-apps
+    environment:
+      POSTGRES_USER: absensi_user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: absensi_DB
+    ports:
+      - "5433:5432"
+    volumes:
+      - data-absensi:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U promet_user -d promet_ticket"]
+      interval: 5s
+      timeout: 5s
+      retries: 5    
+
+volumes:
+  data-absensi:
