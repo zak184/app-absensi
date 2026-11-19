@@ -1,13 +1,13 @@
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: absensi-apps
+    container_name: absensi-postgre
     environment:
-      POSTGRES_USER: absensi_user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: absensi_DB
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5434:5432"
+      - "${DB_PORT}:5432"
     volumes:
       - data-absensi:/var/lib/postgresql/data
     healthcheck:

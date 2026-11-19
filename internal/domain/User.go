@@ -11,7 +11,7 @@ import (
 type Role string
 
 const (
-	RoleUser Role = "user"
+	RoleUser Role = "USER"
 	RoleHr   Role = "HR"
 )
 
@@ -28,16 +28,16 @@ func (r Role) String() string {
 }
 
 type User struct {
-	ID            uuid.UUID
-	Nama          string
-	Email         string
-	Password_hash string
-	Latitude      float64
-	Longitude     float64
-	Phone         string
-	Role          Role
-	CreatedAt     time.Time
-	UpdatedAt     time.Time
+	ID           uuid.UUID
+	Nama         string
+	Email        string
+	PasswordHash string
+	Latitude     float64
+	Longitude    float64
+	Phone        string
+	Role         Role
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type OfficeLocation struct {
